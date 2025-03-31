@@ -56,7 +56,7 @@ Avant d'exécuter l'application, assurez-vous:
 
 3. Attendre la fin du build et ouvrir un browser à l'adresse suivante:
     ```sh
-    htttp:localhost:3000
+    http:localhost:3000
     ```
 
 
@@ -165,7 +165,7 @@ L'objectif est de s'assurer que deux polygones distincts peuvent partager des po
 #### 🚀 Inclusion d'un CI/CD via GitHub Actions  
 Pour automatiser la validation et le déploiement de la solution sur le cloud (exemple : Azure), on pourrait intégrer un pipeline CI/CD avec des étapes d'action comme :  
 
-1. Exécution des tests** : Lancer les tests unitaires et fonctionnels du backend.  
+1. Exécution des tests : Lancer les tests unitaires et fonctionnels du backend.  
 - **Build des images** :  
   - Construction des images Docker pour chaque composant (backend, frontend, base de données).  
   - Construction d’une image globale regroupant tous les services.  
