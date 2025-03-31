@@ -1,0 +1,60 @@
+services:
+  # Service PostgreSQL
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: polygone
+    volumes:
+      - ../db/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - backend_network
+
+  # Service Backend (API)
+  backend:
+    build:
+      context: ../backend  # Backend Directory
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/polygone
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - backend_network
+    restart: always
+
+  # Service Frontend (React App)
+  frontend:
+    build:
+      context: ../frontend  # Frontend Directory
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - backend_network
+    restart: always
+
+      # Service pgAdmin
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com  # Remplace par ton email
+      PGADMIN_DEFAULT_PASSWORD: admin  # Change le mot de passe
+    ports:
+      - "5050:80"  # Accès à pgAdmin via localhost:5050
+    depends_on:
+      - postgres
+    networks:
+      - backend_network
+    restart: always
+
+
+# Network Definition
+networks:
+  backend_network:
+    driver: bridge

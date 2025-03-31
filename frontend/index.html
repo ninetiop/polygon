@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygon Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Polygon Visualizer</h1>
+    <div class="container">
+        
+        <div class="upload-container">
+            <h2>Upload CSV</h2>
+            <input type="file" id="csv-file" accept=".csv" />
+            <button id="upload-btn" onclick="uploadFile()">Upload CSV</button>
+        </div>
+
+        <div class="input-container">
+            <h2>Polygon ID</h2>
+            <input type="number" id="polygon-id" placeholder="Enter Polygon ID" />
+            <button id="load-btn" onclick="loadPolygon()">Load Polygon</button>
+        </div>
+
+        <div class="visualization-container">
+            <h2>Visualization</h2>
+            <img id="polygon-img" src="" alt="Polygon Image will appear here" />
+        </div>
+
+        <!-- Conteneur pour afficher les messages du serveur -->
+        <div id="server-response" class="server-response"></div>
+        
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
