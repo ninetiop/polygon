@@ -1,0 +1,25 @@
+# Fichiers de log
+*.log
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Dossiers de cache et environnement
+.env
+.venv/
+env/
+venv/
+
+# IDEs
+.vscode/
+
+# Fichiers de tests
+*.pytest_cache/
+
+
+# Docker
+.docker/
+docker-compose.override.yml
+
